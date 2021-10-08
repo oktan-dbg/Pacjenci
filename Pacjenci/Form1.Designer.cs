@@ -50,9 +50,9 @@ namespace Pacjenci
             this.imie_txt.AutoSize = true;
             this.imie_txt.Location = new System.Drawing.Point(29, 28);
             this.imie_txt.Name = "imie_txt";
-            this.imie_txt.Size = new System.Drawing.Size(38, 20);
+            this.imie_txt.Size = new System.Drawing.Size(41, 20);
             this.imie_txt.TabIndex = 1;
-            this.imie_txt.Text = "Imię";
+            this.imie_txt.Text = "Imię:";
             this.imie_txt.Click += new System.EventHandler(this.imie_Click);
             // 
             // badanie_txt
@@ -60,9 +60,9 @@ namespace Pacjenci
             this.badanie_txt.AutoSize = true;
             this.badanie_txt.Location = new System.Drawing.Point(190, 28);
             this.badanie_txt.Name = "badanie_txt";
-            this.badanie_txt.Size = new System.Drawing.Size(112, 20);
+            this.badanie_txt.Size = new System.Drawing.Size(115, 20);
             this.badanie_txt.TabIndex = 2;
-            this.badanie_txt.Text = "Nazwa Badania";
+            this.badanie_txt.Text = "Nazwa Badania:";
             // 
             // inpt_badanie
             // 
@@ -77,13 +77,13 @@ namespace Pacjenci
             this.data_txt.AutoSize = true;
             this.data_txt.Location = new System.Drawing.Point(417, 29);
             this.data_txt.Name = "data_txt";
-            this.data_txt.Size = new System.Drawing.Size(41, 20);
+            this.data_txt.Size = new System.Drawing.Size(44, 20);
             this.data_txt.TabIndex = 5;
-            this.data_txt.Text = "Data";
+            this.data_txt.Text = "Data:";
             // 
             // btn_zapisz
             // 
-            this.btn_zapisz.Location = new System.Drawing.Point(694, 55);
+            this.btn_zapisz.Location = new System.Drawing.Point(694, 71);
             this.btn_zapisz.Name = "btn_zapisz";
             this.btn_zapisz.Size = new System.Drawing.Size(94, 29);
             this.btn_zapisz.TabIndex = 6;
@@ -92,10 +92,11 @@ namespace Pacjenci
             // 
             // dtp_data
             // 
-            this.dtp_data.Location = new System.Drawing.Point(464, 22);
+            this.dtp_data.Location = new System.Drawing.Point(464, 25);
             this.dtp_data.Name = "dtp_data";
             this.dtp_data.Size = new System.Drawing.Size(266, 27);
             this.dtp_data.TabIndex = 7;
+            this.dtp_data.ValueChanged += new System.EventHandler(this.dtp_data_ValueChanged);
             // 
             // Form1
             // 

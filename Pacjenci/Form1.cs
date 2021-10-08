@@ -31,5 +31,10 @@ namespace Pacjenci
         {
 
         }
+
+        private void dtp_data_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
