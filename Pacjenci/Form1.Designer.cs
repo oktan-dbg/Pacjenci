@@ -29,6 +29,7 @@ namespace Pacjenci
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.inpt_imie = new System.Windows.Forms.TextBox();
             this.imie_txt = new System.Windows.Forms.Label();
             this.badanie_txt = new System.Windows.Forms.Label();
@@ -36,6 +37,12 @@ namespace Pacjenci
             this.data_txt = new System.Windows.Forms.Label();
             this.btn_zapisz = new System.Windows.Forms.Button();
             this.dtp_data = new System.Windows.Forms.DateTimePicker();
+            this.time = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.godzina = new System.Windows.Forms.Label();
+            this.data = new System.Windows.Forms.Label();
+            this.txt_dzis = new System.Windows.Forms.Label();
+            this.txt_godz = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // inpt_imie
@@ -98,11 +105,66 @@ namespace Pacjenci
             this.dtp_data.TabIndex = 7;
             this.dtp_data.ValueChanged += new System.EventHandler(this.dtp_data_ValueChanged);
             // 
+            // time
+            // 
+            this.time.AutoSize = true;
+            this.time.Location = new System.Drawing.Point(29, 71);
+            this.time.Name = "time";
+            this.time.Size = new System.Drawing.Size(0, 20);
+            this.time.TabIndex = 8;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // godzina
+            // 
+            this.godzina.AutoSize = true;
+            this.godzina.Location = new System.Drawing.Point(102, 101);
+            this.godzina.Name = "godzina";
+            this.godzina.Size = new System.Drawing.Size(63, 20);
+            this.godzina.TabIndex = 9;
+            this.godzina.Text = "godzina";
+            this.godzina.Click += new System.EventHandler(this.godzina_Click);
+            // 
+            // data
+            // 
+            this.data.AutoSize = true;
+            this.data.Location = new System.Drawing.Point(102, 71);
+            this.data.Name = "data";
+            this.data.Size = new System.Drawing.Size(41, 20);
+            this.data.TabIndex = 10;
+            this.data.Text = "Data";
+            this.data.Click += new System.EventHandler(this.data_Click);
+            // 
+            // txt_dzis
+            // 
+            this.txt_dzis.AutoSize = true;
+            this.txt_dzis.Location = new System.Drawing.Point(29, 71);
+            this.txt_dzis.Name = "txt_dzis";
+            this.txt_dzis.Size = new System.Drawing.Size(67, 20);
+            this.txt_dzis.TabIndex = 11;
+            this.txt_dzis.Text = "Dziś jest:";
+            // 
+            // txt_godz
+            // 
+            this.txt_godz.AutoSize = true;
+            this.txt_godz.Location = new System.Drawing.Point(29, 101);
+            this.txt_godz.Name = "txt_godz";
+            this.txt_godz.Size = new System.Drawing.Size(67, 20);
+            this.txt_godz.TabIndex = 12;
+            this.txt_godz.Text = "Godzina:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txt_godz);
+            this.Controls.Add(this.txt_dzis);
+            this.Controls.Add(this.data);
+            this.Controls.Add(this.godzina);
+            this.Controls.Add(this.time);
             this.Controls.Add(this.dtp_data);
             this.Controls.Add(this.btn_zapisz);
             this.Controls.Add(this.data_txt);
@@ -127,6 +189,12 @@ namespace Pacjenci
         private System.Windows.Forms.Label data_txt;
         private System.Windows.Forms.Button btn_zapisz;
         private System.Windows.Forms.DateTimePicker dtp_data;
+        private System.Windows.Forms.Label time;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label godzina;
+        private System.Windows.Forms.Label data;
+        private System.Windows.Forms.Label txt_dzis;
+        private System.Windows.Forms.Label txt_godz;
     }
 }
 
