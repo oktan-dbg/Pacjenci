@@ -12,8 +12,10 @@ namespace Pacjenci
 {
     public partial class Form1 : Form
     {
+        
+
         public Form1()
-        {//
+        {
             InitializeComponent();
         }
 
@@ -52,6 +54,23 @@ namespace Pacjenci
         private void godzina_Click(object sender, EventArgs e)
         {
 
+        }
+        int zmienna=0;
+        string wszystko="";
+
+        private void btn_zapisz_Click(object sender, EventArgs e)
+        {
+            zmienna++;
+            var Imie = inpt_imie.ToString();
+            var Nazwisko = inpt_badanie.ToString();
+            var Data = dtp_data.ToString();
+            wszystko = Imie + Nazwisko + Data + "/n";
+
+        }
+
+        private void wyswietl_btn_Click(object sender, EventArgs e)
+        {
+            this.wyswietl_txt.Text = wszystko;
         }
     }
 }
