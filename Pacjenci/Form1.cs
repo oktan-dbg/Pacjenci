@@ -12,7 +12,31 @@ namespace Pacjenci
 {
     public partial class Form1 : Form
     {
-        
+        int poczatek=0;
+        int koniec = 0;
+        int wielkosc=0;
+        string[] kolejka=new string[5];   
+
+        void usun()
+        {
+            if (wielkosc < 1)
+            {
+                System.Windows.Forms.MessageBox.Show("Nie mamy czego usunac");
+                return;
+
+                
+            }
+            for (int i = 1; i < wielkosc; i++)
+            {
+               kolejka[i - 1] = kolejka[i];
+            }
+
+            wielkosc--;
+        }
+        void dodaj()
+        {
+
+        }
 
         public Form1()
         {
@@ -61,10 +85,20 @@ namespace Pacjenci
         private void btn_zapisz_Click(object sender, EventArgs e)
         {
             zmienna++;
-            var Imie = inpt_imie.ToString();
-            var Nazwisko = inpt_badanie.ToString();
-            var Data = dtp_data.ToString();
-            wszystko = Imie + Nazwisko + Data + "/n";
+            var Imie = inpt_imie.Text.ToString();
+            var Nazwisko = inpt_badanie.Text.ToString();
+            var Data = dtp_data.Value.ToString();
+            wszystko = Imie +" "+ Nazwisko +" "+ Data;
+
+            if (wielkosc > 5)
+            {
+                System.Windows.Forms.MessageBox.Show("Kolejka jest pełna");
+                return;
+            }
+
+
+            kolejka[wielkosc] = wszystko;
+            wielkosc++;
 
         }
 
