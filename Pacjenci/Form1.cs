@@ -57,6 +57,15 @@ namespace Pacjenci
             {
                 string zwracana_wartosc = kolejka[wyswietlanie_zmienna];
                 wyswietl_txt.Text=zwracana_wartosc;
+                wyswietl_txt_nast.Text = kolejka[wyswietlanie_zmienna + 1];
+                if (wyswietlanie_zmienna > 0) 
+                {
+                    wyswietl_txt_pop.Text = kolejka[wyswietlanie_zmienna - 1];
+                }
+                else
+                {
+                    wyswietl_txt_pop.Text = " ";
+                }
             }
 
             
@@ -112,16 +121,51 @@ namespace Pacjenci
         {
 
         }
-        
 
-        private void btn_zapisz_Click(object sender, EventArgs e)
+        private void wyswietl_txt_TextChanged(object sender, EventArgs e)
         {
-            
-            
+
+        }
+
+        private void plus_btn_Click_1(object sender, EventArgs e)
+        {
+            if (wyswietlanie_zmienna >= 4)
+            {
+                System.Windows.Forms.MessageBox.Show("Dobiłeś do Maksa");
+                return;
+            }
+            else
+            {
+                wyswietlanie_zmienna++;
+                string zwracana_wartosc2 = kolejka[wyswietlanie_zmienna];
+
+                wyswietl_txt.Text = zwracana_wartosc2;
+            }
+            wyswietlanie();
+        }
+
+        private void minus_btn_Click_1(object sender, EventArgs e)
+        {
+            if (wyswietlanie_zmienna <= 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Dobiłeś do minimum");
+                return;
+            }
+            else
+            {
+                wyswietlanie_zmienna--;
+                string zwracana_wartosc3 = kolejka[wyswietlanie_zmienna];
+                wyswietl_txt.Text = zwracana_wartosc3;
+            }
+            wyswietlanie();
+        }
+
+        private void btn_zapisz_Click_1(object sender, EventArgs e)
+        {
             Pacjenci.imie = inpt_imie.Text.ToString();
             Pacjenci.badania = inpt_badanie.Text.ToString();
             Pacjenci.data = dtp_data.Value;
-            wszystko = Pacjenci.imie+" "+Pacjenci.badania+" "+Pacjenci.data;
+            wszystko = Pacjenci.imie + " " + Pacjenci.badania + " " + Pacjenci.data;
 
             if (wielkosc > 4)
             {
@@ -135,55 +179,16 @@ namespace Pacjenci
             poczatek++;
             koniec = kolejka[0];
             wyswietlanie();
-
         }
 
-        private void wyswietl_btn_Click(object sender, EventArgs e)
+        private void wyswietl_btn_Click_1(object sender, EventArgs e)
         {
             wyswietlanie();
         }
 
-        private void usun_btn_Click(object sender, EventArgs e)
+        private void usun_btn_Click_1(object sender, EventArgs e)
         {
             usun();
-        }
-    
-        private void plus_btn_Click(object sender, EventArgs e)
-        {
-            
-            if (wyswietlanie_zmienna >= 4)
-            {
-                System.Windows.Forms.MessageBox.Show("Dobiłeś do Maksa");
-                return;
-            }
-            else
-            {
-                wyswietlanie_zmienna++;
-                string zwracana_wartosc2 = kolejka[wyswietlanie_zmienna];
-
-                wyswietl_txt.Text = zwracana_wartosc2;
-            }
-            
-        }
-
-        private void minus_btn_Click(object sender, EventArgs e)
-        {
-            
-            if (wyswietlanie_zmienna <= 0)
-            {
-                System.Windows.Forms.MessageBox.Show("Dobiłeś do minimum");
-                return;
-            }
-            else
-            {
-                wyswietlanie_zmienna--;
-                string zwracana_wartosc3 = kolejka[wyswietlanie_zmienna];
-                wyswietl_txt.Text = zwracana_wartosc3;
-            }
-
-            
-
-            
         }
     }
 }

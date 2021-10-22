@@ -180,6 +180,7 @@ namespace Pacjenci
             this.minus_btn.TabIndex = 29;
             this.minus_btn.Text = "-";
             this.minus_btn.UseVisualStyleBackColor = true;
+            this.minus_btn.Click += new System.EventHandler(this.minus_btn_Click_1);
             // 
             // plus_btn
             // 
@@ -189,6 +190,7 @@ namespace Pacjenci
             this.plus_btn.TabIndex = 28;
             this.plus_btn.Text = "+";
             this.plus_btn.UseVisualStyleBackColor = true;
+            this.plus_btn.Click += new System.EventHandler(this.plus_btn_Click_1);
             // 
             // usun_txt
             // 
@@ -207,6 +209,7 @@ namespace Pacjenci
             this.usun_btn.TabIndex = 26;
             this.usun_btn.Text = "Usuń";
             this.usun_btn.UseVisualStyleBackColor = true;
+            this.usun_btn.Click += new System.EventHandler(this.usun_btn_Click_1);
             // 
             // wyswietl_txt
             // 
@@ -215,6 +218,7 @@ namespace Pacjenci
             this.wyswietl_txt.Name = "wyswietl_txt";
             this.wyswietl_txt.Size = new System.Drawing.Size(323, 27);
             this.wyswietl_txt.TabIndex = 25;
+            this.wyswietl_txt.TextChanged += new System.EventHandler(this.wyswietl_txt_TextChanged);
             // 
             // wyswietl_btn
             // 
@@ -225,6 +229,7 @@ namespace Pacjenci
             this.wyswietl_btn.TabIndex = 24;
             this.wyswietl_btn.Text = "WYŚWIETL";
             this.wyswietl_btn.UseVisualStyleBackColor = true;
+            this.wyswietl_btn.Click += new System.EventHandler(this.wyswietl_btn_Click_1);
             // 
             // groupBox2
             // 
@@ -258,6 +263,7 @@ namespace Pacjenci
             this.btn_zapisz.TabIndex = 13;
             this.btn_zapisz.Text = "ZAPISZ";
             this.btn_zapisz.UseVisualStyleBackColor = true;
+            this.btn_zapisz.Click += new System.EventHandler(this.btn_zapisz_Click_1);
             // 
             // data_txt
             // 
