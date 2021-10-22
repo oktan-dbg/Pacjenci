@@ -24,7 +24,7 @@ namespace Pacjenci
         {
             public string imie;
             public string badania;
-            public DateTime data;
+            public string data;
         }
         Struktura Pacjenci = new Struktura();
 
@@ -162,10 +162,15 @@ namespace Pacjenci
 
         private void btn_zapisz_Click_1(object sender, EventArgs e)
         {
+            wyswietl_txt.Font = new Font("Microsoft Sans Serif", 7.5f);
+            wyswietl_txt_nast.Font = new Font("Microsoft Sans Serif", 7.5f);
+            wyswietl_txt_pop.Font = new Font("Microsoft Sans Serif", 7.5f);
+            DateTime godzina = DateTime.Now;
             Pacjenci.imie = inpt_imie.Text.ToString();
             Pacjenci.badania = inpt_badanie.Text.ToString();
-            Pacjenci.data = dtp_data.Value;
-            wszystko = Pacjenci.imie + " " + Pacjenci.badania + " " + Pacjenci.data;
+            TimeSpan value = dtp_data.Value.Subtract(godzina);
+            Pacjenci.data =  "Dni:"+value.Days.ToString() + " " + "Godz:"+value.Hours.ToString()+" "+"Min:"+value.Minutes.ToString();
+            wszystko = "Imie:"+Pacjenci.imie+" "+ "Badanie:" + Pacjenci.badania + " " + Pacjenci.data;
 
             if (wielkosc > 4)
             {

@@ -37,14 +37,12 @@ namespace Pacjenci
             this.txt_dzis = new System.Windows.Forms.Label();
             this.txt_godz = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.poprzedni_txt = new System.Windows.Forms.Label();
             this.nastepny_txt = new System.Windows.Forms.Label();
             this.wyswietl_txt_pop = new System.Windows.Forms.TextBox();
             this.wyswietl_txt_nast = new System.Windows.Forms.TextBox();
             this.minus_btn = new System.Windows.Forms.Button();
             this.plus_btn = new System.Windows.Forms.Button();
-            this.usun_txt = new System.Windows.Forms.TextBox();
             this.usun_btn = new System.Windows.Forms.Button();
             this.wyswietl_txt = new System.Windows.Forms.TextBox();
             this.wyswietl_btn = new System.Windows.Forms.Button();
@@ -113,32 +111,21 @@ namespace Pacjenci
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.poprzedni_txt);
             this.groupBox1.Controls.Add(this.nastepny_txt);
             this.groupBox1.Controls.Add(this.wyswietl_txt_pop);
             this.groupBox1.Controls.Add(this.wyswietl_txt_nast);
             this.groupBox1.Controls.Add(this.minus_btn);
             this.groupBox1.Controls.Add(this.plus_btn);
-            this.groupBox1.Controls.Add(this.usun_txt);
             this.groupBox1.Controls.Add(this.usun_btn);
             this.groupBox1.Controls.Add(this.wyswietl_txt);
             this.groupBox1.Controls.Add(this.wyswietl_btn);
-            this.groupBox1.Location = new System.Drawing.Point(320, 31);
+            this.groupBox1.Location = new System.Drawing.Point(315, 31);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(447, 193);
+            this.groupBox1.Size = new System.Drawing.Size(452, 193);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zarządzanie listą:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(111, 146);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 20);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Numer osoby w kolejce:";
             // 
             // poprzedni_txt
             // 
@@ -192,22 +179,14 @@ namespace Pacjenci
             this.plus_btn.UseVisualStyleBackColor = true;
             this.plus_btn.Click += new System.EventHandler(this.plus_btn_Click_1);
             // 
-            // usun_txt
-            // 
-            this.usun_txt.Location = new System.Drawing.Point(284, 143);
-            this.usun_txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.usun_txt.Name = "usun_txt";
-            this.usun_txt.Size = new System.Drawing.Size(59, 27);
-            this.usun_txt.TabIndex = 27;
-            // 
             // usun_btn
             // 
-            this.usun_btn.Location = new System.Drawing.Point(349, 141);
+            this.usun_btn.Location = new System.Drawing.Point(349, 150);
             this.usun_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.usun_btn.Name = "usun_btn";
             this.usun_btn.Size = new System.Drawing.Size(86, 31);
             this.usun_btn.TabIndex = 26;
-            this.usun_btn.Text = "Usuń";
+            this.usun_btn.Text = "USUŃ";
             this.usun_btn.UseVisualStyleBackColor = true;
             this.usun_btn.Click += new System.EventHandler(this.usun_btn_Click_1);
             // 
@@ -222,7 +201,7 @@ namespace Pacjenci
             // 
             // wyswietl_btn
             // 
-            this.wyswietl_btn.Location = new System.Drawing.Point(12, 143);
+            this.wyswietl_btn.Location = new System.Drawing.Point(18, 150);
             this.wyswietl_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.wyswietl_btn.Name = "wyswietl_btn";
             this.wyswietl_btn.Size = new System.Drawing.Size(93, 31);
@@ -338,14 +317,12 @@ namespace Pacjenci
         private System.Windows.Forms.Label txt_dzis;
         private System.Windows.Forms.Label txt_godz;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label poprzedni_txt;
         private System.Windows.Forms.Label nastepny_txt;
         private System.Windows.Forms.TextBox wyswietl_txt_pop;
         private System.Windows.Forms.TextBox wyswietl_txt_nast;
         private System.Windows.Forms.Button minus_btn;
         private System.Windows.Forms.Button plus_btn;
-        private System.Windows.Forms.TextBox usun_txt;
         private System.Windows.Forms.Button usun_btn;
         private System.Windows.Forms.TextBox wyswietl_txt;
         private System.Windows.Forms.Button wyswietl_btn;
