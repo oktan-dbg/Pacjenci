@@ -17,6 +17,8 @@ namespace Pacjenci
         int wielkosc=0;
         string[] kolejka=new string[5];
         int wyswietlanie_zmienna = 0;
+        //TextBox wyswietl = new TextBox();
+        string wszystko="";
 
         void usun()
         {
@@ -33,28 +35,23 @@ namespace Pacjenci
                     kolejka[i - 1] = kolejka[i];
                 }
 
-                wyswietlanie_zmienna--;
                 wielkosc--;
             }
         }
         void wyswietlanie()
         {
-            if (wielkosc < 1)
+            if (wielkosc < 0)
             {
-                
+                System.Windows.Forms.MessageBox.Show("Mamy za mało wartosci");
                 return;
             }
-
-            string zwracana_wartosc = kolejka[0];
-
-            for (int i = 1; i < wielkosc; i++)
+            else
             {
-                kolejka[i - 1] = kolejka[i];
+                string zwracana_wartosc = kolejka[wyswietlanie_zmienna];
+                wyswietl_txt.Text=zwracana_wartosc;
             }
 
-            wyswietlanie_zmienna--;
-
-            this.wyswietl_txt.Text=zwracana_wartosc;
+            
         }
 
         public Form1()
@@ -98,7 +95,7 @@ namespace Pacjenci
         {
 
         }
-        string wszystko="";
+        
 
         private void btn_zapisz_Click(object sender, EventArgs e)
         {
@@ -133,6 +130,44 @@ namespace Pacjenci
         {
             //int liczba = Int32.Parse(usun_txt.Text);
             usun();
+        }
+    
+        private void plus_btn_Click(object sender, EventArgs e)
+        {
+            
+            if (wyswietlanie_zmienna >= 4)
+            {
+                System.Windows.Forms.MessageBox.Show("Dobiłeś do Maksa");
+                return;
+            }
+            else
+            {
+                wyswietlanie_zmienna++;
+                string zwracana_wartosc2 = kolejka[wyswietlanie_zmienna];
+
+                wyswietl_txt.Text = zwracana_wartosc2;
+            }
+            
+        }
+
+        private void minus_btn_Click(object sender, EventArgs e)
+        {
+            
+            if (wyswietlanie_zmienna <= 0)
+            {
+                System.Windows.Forms.MessageBox.Show("Dobiłeś do minimum");
+                return;
+            }
+            else
+            {
+                wyswietlanie_zmienna--;
+                string zwracana_wartosc3 = kolejka[wyswietlanie_zmienna];
+                wyswietl_txt.Text = zwracana_wartosc3;
+            }
+
+            
+
+            
         }
     }
 }
