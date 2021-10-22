@@ -45,6 +45,8 @@ namespace Pacjenci
             this.txt_godz = new System.Windows.Forms.Label();
             this.wyswietl_btn = new System.Windows.Forms.Button();
             this.wyswietl_txt = new System.Windows.Forms.TextBox();
+            this.usun_btn = new System.Windows.Forms.Button();
+            this.usun_txt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // inpt_imie
@@ -164,7 +166,7 @@ namespace Pacjenci
             // 
             // wyswietl_btn
             // 
-            this.wyswietl_btn.Location = new System.Drawing.Point(607, 102);
+            this.wyswietl_btn.Location = new System.Drawing.Point(607, 184);
             this.wyswietl_btn.Name = "wyswietl_btn";
             this.wyswietl_btn.Size = new System.Drawing.Size(81, 23);
             this.wyswietl_btn.TabIndex = 13;
@@ -174,16 +176,35 @@ namespace Pacjenci
             // 
             // wyswietl_txt
             // 
-            this.wyswietl_txt.Location = new System.Drawing.Point(25, 131);
+            this.wyswietl_txt.Location = new System.Drawing.Point(25, 185);
             this.wyswietl_txt.Name = "wyswietl_txt";
             this.wyswietl_txt.Size = new System.Drawing.Size(283, 23);
             this.wyswietl_txt.TabIndex = 14;
+            // 
+            // usun_btn
+            // 
+            this.usun_btn.Location = new System.Drawing.Point(78, 94);
+            this.usun_btn.Name = "usun_btn";
+            this.usun_btn.Size = new System.Drawing.Size(75, 23);
+            this.usun_btn.TabIndex = 15;
+            this.usun_btn.Text = "Usuń";
+            this.usun_btn.UseVisualStyleBackColor = true;
+            this.usun_btn.Click += new System.EventHandler(this.usun_btn_Click);
+            // 
+            // usun_txt
+            // 
+            this.usun_txt.Location = new System.Drawing.Point(25, 95);
+            this.usun_txt.Name = "usun_txt";
+            this.usun_txt.Size = new System.Drawing.Size(52, 23);
+            this.usun_txt.TabIndex = 16;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 338);
+            this.Controls.Add(this.usun_txt);
+            this.Controls.Add(this.usun_btn);
             this.Controls.Add(this.wyswietl_txt);
             this.Controls.Add(this.wyswietl_btn);
             this.Controls.Add(this.txt_godz);
@@ -224,6 +245,8 @@ namespace Pacjenci
         private System.Windows.Forms.Label txt_godz;
         private System.Windows.Forms.Button wyswietl_btn;
         private System.Windows.Forms.TextBox wyswietl_txt;
+        private System.Windows.Forms.Button usun_btn;
+        private System.Windows.Forms.TextBox usun_txt;
     }
 }
 

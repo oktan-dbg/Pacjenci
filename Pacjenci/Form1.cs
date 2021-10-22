@@ -33,9 +33,24 @@ namespace Pacjenci
 
             wielkosc--;
         }
-        void dodaj()
+        void wyswietlanie()
         {
+            if (wielkosc < 1)
+            {
+                
+                return;
+            }
 
+            string zwracana_wartosc = kolejka[0];
+
+            for (int i = 1; i < wielkosc; i++)
+            {
+                kolejka[i - 1] = kolejka[i];
+            }
+
+            wielkosc--;
+
+            this.wyswietl_txt.Text=zwracana_wartosc;
         }
 
         public Form1()
@@ -104,7 +119,14 @@ namespace Pacjenci
 
         private void wyswietl_btn_Click(object sender, EventArgs e)
         {
-            this.wyswietl_txt.Text = wszystko;
+            wyswietlanie();
+            //this.wyswietl_txt.Text = wszystko;
+        }
+
+        private void usun_btn_Click(object sender, EventArgs e)
+        {
+            int liczba = Int32.Parse(usun_txt.Text);
+            usun();
         }
     }
 }
