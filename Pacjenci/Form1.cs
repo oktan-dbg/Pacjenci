@@ -13,7 +13,7 @@ namespace Pacjenci
     public partial class Form1 : Form
     {
         int poczatek=0;
-        int koniec = 0;
+        string koniec = "";
         int wielkosc=0;
         string[] kolejka=new string[5];   
 
@@ -114,6 +114,8 @@ namespace Pacjenci
 
             kolejka[wielkosc] = wszystko;
             wielkosc++;
+            poczatek++;
+            koniec = kolejka[0];
 
         }
 
@@ -125,7 +127,7 @@ namespace Pacjenci
 
         private void usun_btn_Click(object sender, EventArgs e)
         {
-            int liczba = Int32.Parse(usun_txt.Text);
+            //int liczba = Int32.Parse(usun_txt.Text);
             usun();
         }
     }
