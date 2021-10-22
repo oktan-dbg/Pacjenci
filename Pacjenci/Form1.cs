@@ -12,17 +12,25 @@ namespace Pacjenci
 {
     public partial class Form1 : Form
     {
-        int poczatek=0;
+        int poczatek = 0;
         string koniec = "";
-        int wielkosc=0;
-        string[] kolejka=new string[5];
+        int wielkosc = 0;
+        string[] kolejka = new string[5];
         int wyswietlanie_zmienna = 0;
         //TextBox wyswietl = new TextBox();
-        string wszystko="";
+        string wszystko = "";
+
+        struct Struktura
+        {
+            public string imie;
+            public string badania;
+            public DateTime data;
+        }
+        Struktura Pacjenci = new Struktura();
 
         void usun()
         {
-            if (wielkosc < 1)
+            if (wielkosc <= 1)
             {
                 System.Windows.Forms.MessageBox.Show("Nie mamy czego usunac");
                 return;
@@ -61,6 +69,7 @@ namespace Pacjenci
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            wyswietlanie();
             timer1.Start();
         }
 
@@ -81,6 +90,14 @@ namespace Pacjenci
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if(wyswietlanie_zmienna==0)
+            {
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Bold);
+            }
+            else
+            {
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Regular);
+            }
             DateTime godzina = DateTime.Now;
             this.godzina.Text = godzina.ToString("HH:mm");
             this.data.Text = godzina.ToShortDateString();
@@ -101,12 +118,12 @@ namespace Pacjenci
         {
             
             
-            var Imie = inpt_imie.Text.ToString();
-            var Nazwisko = inpt_badanie.Text.ToString();
-            var Data = dtp_data.Value.ToString();
-            wszystko = Imie +" "+ Nazwisko +" "+ Data;
+            Pacjenci.imie = inpt_imie.Text.ToString();
+            Pacjenci.badania = inpt_badanie.Text.ToString();
+            Pacjenci.data = dtp_data.Value;
+            wszystko = Pacjenci.imie+" "+Pacjenci.badania+" "+Pacjenci.data;
 
-            if (wielkosc > 5)
+            if (wielkosc > 4)
             {
                 System.Windows.Forms.MessageBox.Show("Kolejka jest pełna");
                 return;
@@ -117,18 +134,17 @@ namespace Pacjenci
             wielkosc++;
             poczatek++;
             koniec = kolejka[0];
+            wyswietlanie();
 
         }
 
         private void wyswietl_btn_Click(object sender, EventArgs e)
         {
             wyswietlanie();
-            //this.wyswietl_txt.Text = wszystko;
         }
 
         private void usun_btn_Click(object sender, EventArgs e)
         {
-            //int liczba = Int32.Parse(usun_txt.Text);
             usun();
         }
     
