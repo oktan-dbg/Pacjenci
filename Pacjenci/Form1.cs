@@ -15,7 +15,8 @@ namespace Pacjenci
         int poczatek=0;
         string koniec = "";
         int wielkosc=0;
-        string[] kolejka=new string[5];   
+        string[] kolejka=new string[5];
+        int wyswietlanie_zmienna = 0;
 
         void usun()
         {
@@ -24,14 +25,17 @@ namespace Pacjenci
                 System.Windows.Forms.MessageBox.Show("Nie mamy czego usunac");
                 return;
 
-                
-            }
-            for (int i = 1; i < wielkosc; i++)
-            {
-               kolejka[i - 1] = kolejka[i];
-            }
 
-            wielkosc--;
+            }
+            else {
+                for (int i = 1; i < wielkosc; i++)
+                {
+                    kolejka[i - 1] = kolejka[i];
+                }
+
+                wyswietlanie_zmienna--;
+                wielkosc--;
+            }
         }
         void wyswietlanie()
         {
@@ -48,7 +52,7 @@ namespace Pacjenci
                 kolejka[i - 1] = kolejka[i];
             }
 
-            wielkosc--;
+            wyswietlanie_zmienna--;
 
             this.wyswietl_txt.Text=zwracana_wartosc;
         }
@@ -94,12 +98,12 @@ namespace Pacjenci
         {
 
         }
-        int zmienna=0;
         string wszystko="";
 
         private void btn_zapisz_Click(object sender, EventArgs e)
         {
-            zmienna++;
+            
+            
             var Imie = inpt_imie.Text.ToString();
             var Nazwisko = inpt_badanie.Text.ToString();
             var Data = dtp_data.Value.ToString();
