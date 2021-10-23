@@ -67,8 +67,18 @@ namespace Pacjenci
                     wyswietl_txt_pop.Text = " ";
                 }
             }
+            if (wyswietl_txt.Text.Contains("Dni:0") == true)
+            {
+                wyswietl_txt.ForeColor = Color.Red;
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Italic);
+            }
+            else
+            {
+                wyswietl_txt.ForeColor = Color.Black;
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Regular);
+            }
 
-            
+
         }
 
         public Form1()
@@ -107,6 +117,18 @@ namespace Pacjenci
             {
                 wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Regular);
             }
+            /*if (kolejka[wyswietlanie_zmienna] == "Dni: 0")
+            {
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Bold);
+                wyswietl_txt.ForeColor = Color.Red;
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Italic);
+            }
+            else
+            {
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Regular);
+                wyswietl_txt.ForeColor = Color.Black;
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Regular);
+            }*/
             DateTime godzina = DateTime.Now;
             this.godzina.Text = godzina.ToString("HH:mm");
             this.data.Text = godzina.ToShortDateString();
@@ -141,6 +163,18 @@ namespace Pacjenci
 
                 wyswietl_txt.Text = zwracana_wartosc2;
             }
+            if(wyswietl_txt.Text.Contains("Dni:0") == true)
+            {
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Bold);
+                wyswietl_txt.ForeColor = Color.Red;
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Italic);
+            }
+            else
+            {
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Regular);
+                wyswietl_txt.ForeColor = Color.Black;
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Regular);
+            }
             wyswietlanie();
         }
 
@@ -156,6 +190,16 @@ namespace Pacjenci
                 wyswietlanie_zmienna--;
                 string zwracana_wartosc3 = kolejka[wyswietlanie_zmienna];
                 wyswietl_txt.Text = zwracana_wartosc3;
+            }
+            if (wyswietl_txt.Text.Contains("Dni:0") == true)
+            {
+                wyswietl_txt.ForeColor = Color.Red;
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Italic);
+            }
+            else
+            {
+                wyswietl_txt.ForeColor = Color.Black;
+                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Regular);
             }
             wyswietlanie();
         }
@@ -179,7 +223,7 @@ namespace Pacjenci
             }
 
 
-            kolejka[wielkosc] = wszystko;
+            kolejka[wielkosc] = "Imie:" + Pacjenci.imie + " " + "Badanie:" + Pacjenci.badania + " " + Pacjenci.data;
             wielkosc++;
             poczatek++;
             koniec = kolejka[0];
