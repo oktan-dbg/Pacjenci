@@ -14,13 +14,16 @@ namespace Pacjenci
 {
     public partial class Form1 : Form
     {
+//-----------------------Deklaracja zmiennych dla kolejki
         int poczatek = -1;
         int koniec = -1;
         int wielkosc = 50;
         string[,] kolejka = new string[50,3];
-        string kolejka_txt = @"C:\Users\oktaw\Downloads\kolejka.txt";
         int wyswietlanie_zmienna = 0;
+//-----------------------ścieżki i nazwy pliku txt
+        string kolejka_txt = @"C:\Users\Public\Downloads\kolejka.txt";
 
+//-----------------------Deklaracja struktury pacjenta
         struct Struktura
         {
             public string imie;
@@ -30,6 +33,7 @@ namespace Pacjenci
         Struktura Pacjenci = new Struktura();
 
 
+//----------------------Funkcja usuń usuwająca dane z kolejki
         void usun()
         {
             if(poczatek == -1|| poczatek > koniec)
@@ -43,6 +47,8 @@ namespace Pacjenci
                 poczatek++;
             }
         }
+
+//-----------------------Funkcja zawierająca wszystkie funkcje dotyczące wyświetlania
         void wyswietlanie()
         {
             if (poczatek == - 1)
@@ -52,10 +58,12 @@ namespace Pacjenci
             }
             else
             {
+//-----------------------Wyświetlanie głównych wartości
                 wyswietl_txt_imie.Text = kolejka[wyswietlanie_zmienna, 0];
                 wyswietl_txt_badanie.Text = kolejka[wyswietlanie_zmienna, 1];
                 wyswietl_txt_data.Text = kolejka[wyswietlanie_zmienna, 2];
-                if (wyswietlanie_zmienna > 0) 
+//-----------------------Wyświetlanie poprzednich wartości
+                if (wyswietlanie_zmienna > poczatek) 
                 {
                     wyswietl_txt_pop_imie.Text = kolejka[wyswietlanie_zmienna - 1, 0];
                     wyswietl_txt_pop_badanie.Text = kolejka[wyswietlanie_zmienna - 1, 1];
@@ -67,7 +75,8 @@ namespace Pacjenci
                     wyswietl_txt_pop_badanie.Text = " ";
                     wyswietl_txt_pop_data.Text = " ";
                 }
-                if (wyswietlanie_zmienna != 4)
+//-----------------------Wyświetlanie następnych wartości
+                if (wyswietlanie_zmienna != koniec)
                 {
                     wyswietl_txt_nast_imie.Text = kolejka[wyswietlanie_zmienna + 1, 0];
                     wyswietl_txt_nast_badanie.Text = kolejka[wyswietlanie_zmienna + 1, 1];
@@ -80,6 +89,7 @@ namespace Pacjenci
                     wyswietl_txt_nast_data.Text = " ";
                 }
             }
+//-----------------------Zmiana kolorów dni
             if (wyswietl_txt_data.Text.Contains("Dni:0") == true)
             {
                 wyswietl_txt_data.ForeColor = Color.Red;
@@ -136,18 +146,19 @@ namespace Pacjenci
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            wyswietlanie();
             timer1.Start();
         }
-
+//-----------------------Funkcje odświerzające się w timerze
         private void timer1_Tick(object sender, EventArgs e)
         {
+            dtp_data.Format = DateTimePickerFormat.Custom;
+            dtp_data.CustomFormat = "dd-MM-yyyy";
             wyswietl_txt_imie.Font = new Font(wyswietl_txt_imie.Font, FontStyle.Bold);
             DateTime godzina = DateTime.Now;
             this.godzina.Text = godzina.ToString("HH:mm");
             this.data.Text = godzina.ToShortDateString();
         }
-
+//-----------------------Przycisk pokazujący następny element w kolejce
         private void plus_btn_Click_1(object sender, EventArgs e)
         {
             if (wyswietlanie_zmienna >= koniec)
@@ -166,7 +177,7 @@ namespace Pacjenci
             }
             wyswietlanie();
         }
-
+//-----------------------Przycisk pokazujący poprzedni element w kolejce
         private void minus_btn_Click_1(object sender, EventArgs e)
         {
             if (wyswietlanie_zmienna <= poczatek)
@@ -183,7 +194,7 @@ namespace Pacjenci
             }
             wyswietlanie();
         }
-
+//-----------------------Przycisk zapisujący nowy element w kolejce
         private void btn_zapisz_Click_1(object sender, EventArgs e)
         {
             wyswietl_txt_imie.Font = new Font("Microsoft Sans Serif", 7.5f);
@@ -211,24 +222,24 @@ namespace Pacjenci
                 Pacjenci.imie = inpt_imie.Text.ToString();
                 Pacjenci.badania = inpt_badanie.Text.ToString();
                 TimeSpan value = dtp_data.Value.Subtract(godzina);
-                Pacjenci.data =  "Dni:"+value.Days.ToString() + " " + "Godz:"+value.Hours.ToString()+" "+"Min:"+value.Minutes.ToString();   
+                Pacjenci.data =  "Dni:"+value.Days.ToString();   
                 kolejka[koniec, 0] = "Imie:" + Pacjenci.imie;
                 kolejka[koniec, 1] = "Badanie:" + Pacjenci.badania;
                 kolejka[koniec, 2] = Pacjenci.data;
             }
             wyswietlanie();
         }
-
+//-----------------------Przycisk wywołujący odświerzenie wyświetlania
         private void wyswietl_btn_Click_1(object sender, EventArgs e)
         {
             wyswietlanie();
         }
-
+//-----------------------Przycisk usuwający pierwszy element w kolejce 
         private void usun_btn_Click_1(object sender, EventArgs e)
         {
             usun();
         }
-
+//-----------------------Przycisk pobierający dane z tabeli a następnie zapisujący je w pliku txt w folderze pobrane 
         private void button1_Click(object sender, EventArgs e)
         {
             if (!File.Exists(kolejka_txt))
@@ -238,9 +249,11 @@ namespace Pacjenci
                     int i=poczatek;
                     while (i <= koniec)
                     {
+                        writer.WriteLine("-----------------------------");
                         writer.WriteLine(kolejka[i, 0].ToString());
                         writer.WriteLine(kolejka[i, 1].ToString());
                         writer.WriteLine(kolejka[i, 2].ToString());
+                        writer.WriteLine("-----------------------------");
                         i++;
                     }
                     
