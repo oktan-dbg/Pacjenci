@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace Pacjenci
 {
@@ -16,6 +18,7 @@ namespace Pacjenci
         int koniec = -1;
         int wielkosc = 50;
         string[,] kolejka = new string[50,3];
+        string kolejka_txt = @"C:\Users\oktaw\Downloads\kolejka.txt";
         int wyswietlanie_zmienna = 0;
 
         struct Struktura
@@ -25,6 +28,7 @@ namespace Pacjenci
             public string data;
         }
         Struktura Pacjenci = new Struktura();
+
 
         void usun()
         {
@@ -223,6 +227,25 @@ namespace Pacjenci
         private void usun_btn_Click_1(object sender, EventArgs e)
         {
             usun();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(kolejka_txt))
+            {
+                using (StreamWriter writer = File.CreateText(kolejka_txt))
+                {
+                    int i=poczatek;
+                    while (i <= koniec)
+                    {
+                        writer.WriteLine(kolejka[i, 0].ToString());
+                        writer.WriteLine(kolejka[i, 1].ToString());
+                        writer.WriteLine(kolejka[i, 2].ToString());
+                        i++;
+                    }
+                    
+                }
+            }
         }
     }
 }

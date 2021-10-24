@@ -37,6 +37,13 @@ namespace Pacjenci
             this.txt_dzis = new System.Windows.Forms.Label();
             this.txt_godz = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.wyswietl_txt_pop_data = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_pop_badanie = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_pop_imie = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_nast_data = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_nast_badanie = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_nast_imie = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_data = new System.Windows.Forms.TextBox();
             this.wyswietl_txt_badanie = new System.Windows.Forms.TextBox();
             this.poprzedni_txt = new System.Windows.Forms.Label();
             this.nastepny_txt = new System.Windows.Forms.Label();
@@ -53,13 +60,8 @@ namespace Pacjenci
             this.badanie_txt = new System.Windows.Forms.Label();
             this.imie_txt = new System.Windows.Forms.Label();
             this.inpt_imie = new System.Windows.Forms.TextBox();
-            this.wyswietl_txt_data = new System.Windows.Forms.TextBox();
-            this.wyswietl_txt_nast_data = new System.Windows.Forms.TextBox();
-            this.wyswietl_txt_nast_badanie = new System.Windows.Forms.TextBox();
-            this.wyswietl_txt_nast_imie = new System.Windows.Forms.TextBox();
-            this.wyswietl_txt_pop_data = new System.Windows.Forms.TextBox();
-            this.wyswietl_txt_pop_badanie = new System.Windows.Forms.TextBox();
-            this.wyswietl_txt_pop_imie = new System.Windows.Forms.TextBox();
+            this.pobierz_btn = new System.Windows.Forms.Button();
+            this.pobierz_txt = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +69,7 @@ namespace Pacjenci
             // time
             // 
             this.time.AutoSize = true;
-            this.time.Location = new System.Drawing.Point(620, 243);
+            this.time.Location = new System.Drawing.Point(653, 233);
             this.time.Name = "time";
             this.time.Size = new System.Drawing.Size(0, 20);
             this.time.TabIndex = 8;
@@ -79,7 +81,7 @@ namespace Pacjenci
             // godzina
             // 
             this.godzina.AutoSize = true;
-            this.godzina.Location = new System.Drawing.Point(693, 273);
+            this.godzina.Location = new System.Drawing.Point(726, 263);
             this.godzina.Name = "godzina";
             this.godzina.Size = new System.Drawing.Size(63, 20);
             this.godzina.TabIndex = 9;
@@ -88,7 +90,7 @@ namespace Pacjenci
             // data
             // 
             this.data.AutoSize = true;
-            this.data.Location = new System.Drawing.Point(693, 243);
+            this.data.Location = new System.Drawing.Point(726, 233);
             this.data.Name = "data";
             this.data.Size = new System.Drawing.Size(41, 20);
             this.data.TabIndex = 10;
@@ -97,7 +99,7 @@ namespace Pacjenci
             // txt_dzis
             // 
             this.txt_dzis.AutoSize = true;
-            this.txt_dzis.Location = new System.Drawing.Point(620, 243);
+            this.txt_dzis.Location = new System.Drawing.Point(653, 233);
             this.txt_dzis.Name = "txt_dzis";
             this.txt_dzis.Size = new System.Drawing.Size(67, 20);
             this.txt_dzis.TabIndex = 11;
@@ -106,7 +108,7 @@ namespace Pacjenci
             // txt_godz
             // 
             this.txt_godz.AutoSize = true;
-            this.txt_godz.Location = new System.Drawing.Point(620, 273);
+            this.txt_godz.Location = new System.Drawing.Point(653, 263);
             this.txt_godz.Name = "txt_godz";
             this.txt_godz.Size = new System.Drawing.Size(67, 20);
             this.txt_godz.TabIndex = 12;
@@ -136,6 +138,62 @@ namespace Pacjenci
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zarządzanie listą:";
+            // 
+            // wyswietl_txt_pop_data
+            // 
+            this.wyswietl_txt_pop_data.Location = new System.Drawing.Point(337, 107);
+            this.wyswietl_txt_pop_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_pop_data.Name = "wyswietl_txt_pop_data";
+            this.wyswietl_txt_pop_data.Size = new System.Drawing.Size(155, 27);
+            this.wyswietl_txt_pop_data.TabIndex = 41;
+            // 
+            // wyswietl_txt_pop_badanie
+            // 
+            this.wyswietl_txt_pop_badanie.Location = new System.Drawing.Point(209, 107);
+            this.wyswietl_txt_pop_badanie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_pop_badanie.Name = "wyswietl_txt_pop_badanie";
+            this.wyswietl_txt_pop_badanie.Size = new System.Drawing.Size(128, 27);
+            this.wyswietl_txt_pop_badanie.TabIndex = 40;
+            // 
+            // wyswietl_txt_pop_imie
+            // 
+            this.wyswietl_txt_pop_imie.Location = new System.Drawing.Point(98, 107);
+            this.wyswietl_txt_pop_imie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_pop_imie.Name = "wyswietl_txt_pop_imie";
+            this.wyswietl_txt_pop_imie.Size = new System.Drawing.Size(113, 27);
+            this.wyswietl_txt_pop_imie.TabIndex = 39;
+            // 
+            // wyswietl_txt_nast_data
+            // 
+            this.wyswietl_txt_nast_data.Location = new System.Drawing.Point(337, 76);
+            this.wyswietl_txt_nast_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_nast_data.Name = "wyswietl_txt_nast_data";
+            this.wyswietl_txt_nast_data.Size = new System.Drawing.Size(155, 27);
+            this.wyswietl_txt_nast_data.TabIndex = 38;
+            // 
+            // wyswietl_txt_nast_badanie
+            // 
+            this.wyswietl_txt_nast_badanie.Location = new System.Drawing.Point(209, 76);
+            this.wyswietl_txt_nast_badanie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_nast_badanie.Name = "wyswietl_txt_nast_badanie";
+            this.wyswietl_txt_nast_badanie.Size = new System.Drawing.Size(128, 27);
+            this.wyswietl_txt_nast_badanie.TabIndex = 37;
+            // 
+            // wyswietl_txt_nast_imie
+            // 
+            this.wyswietl_txt_nast_imie.Location = new System.Drawing.Point(98, 76);
+            this.wyswietl_txt_nast_imie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_nast_imie.Name = "wyswietl_txt_nast_imie";
+            this.wyswietl_txt_nast_imie.Size = new System.Drawing.Size(113, 27);
+            this.wyswietl_txt_nast_imie.TabIndex = 36;
+            // 
+            // wyswietl_txt_data
+            // 
+            this.wyswietl_txt_data.Location = new System.Drawing.Point(304, 39);
+            this.wyswietl_txt_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_data.Name = "wyswietl_txt_data";
+            this.wyswietl_txt_data.Size = new System.Drawing.Size(141, 27);
+            this.wyswietl_txt_data.TabIndex = 35;
             // 
             // wyswietl_txt_badanie
             // 
@@ -275,6 +333,7 @@ namespace Pacjenci
             // imie_txt
             // 
             this.imie_txt.AutoSize = true;
+            this.imie_txt.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.imie_txt.Location = new System.Drawing.Point(5, 19);
             this.imie_txt.Name = "imie_txt";
             this.imie_txt.Size = new System.Drawing.Size(41, 20);
@@ -288,67 +347,35 @@ namespace Pacjenci
             this.inpt_imie.Size = new System.Drawing.Size(263, 27);
             this.inpt_imie.TabIndex = 8;
             // 
-            // wyswietl_txt_data
+            // pobierz_btn
             // 
-            this.wyswietl_txt_data.Location = new System.Drawing.Point(304, 39);
-            this.wyswietl_txt_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.wyswietl_txt_data.Name = "wyswietl_txt_data";
-            this.wyswietl_txt_data.Size = new System.Drawing.Size(141, 27);
-            this.wyswietl_txt_data.TabIndex = 35;
+            this.pobierz_btn.Location = new System.Drawing.Point(509, 223);
+            this.pobierz_btn.Name = "pobierz_btn";
+            this.pobierz_btn.Size = new System.Drawing.Size(94, 29);
+            this.pobierz_btn.TabIndex = 26;
+            this.pobierz_btn.Text = "POBIERZ";
+            this.pobierz_btn.UseVisualStyleBackColor = true;
+            this.pobierz_btn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // wyswietl_txt_nast_data
+            // pobierz_txt
             // 
-            this.wyswietl_txt_nast_data.Location = new System.Drawing.Point(337, 76);
-            this.wyswietl_txt_nast_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.wyswietl_txt_nast_data.Name = "wyswietl_txt_nast_data";
-            this.wyswietl_txt_nast_data.Size = new System.Drawing.Size(155, 27);
-            this.wyswietl_txt_nast_data.TabIndex = 38;
-            // 
-            // wyswietl_txt_nast_badanie
-            // 
-            this.wyswietl_txt_nast_badanie.Location = new System.Drawing.Point(209, 76);
-            this.wyswietl_txt_nast_badanie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.wyswietl_txt_nast_badanie.Name = "wyswietl_txt_nast_badanie";
-            this.wyswietl_txt_nast_badanie.Size = new System.Drawing.Size(128, 27);
-            this.wyswietl_txt_nast_badanie.TabIndex = 37;
-            // 
-            // wyswietl_txt_nast_imie
-            // 
-            this.wyswietl_txt_nast_imie.Location = new System.Drawing.Point(98, 76);
-            this.wyswietl_txt_nast_imie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.wyswietl_txt_nast_imie.Name = "wyswietl_txt_nast_imie";
-            this.wyswietl_txt_nast_imie.Size = new System.Drawing.Size(113, 27);
-            this.wyswietl_txt_nast_imie.TabIndex = 36;
-            // 
-            // wyswietl_txt_pop_data
-            // 
-            this.wyswietl_txt_pop_data.Location = new System.Drawing.Point(337, 107);
-            this.wyswietl_txt_pop_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.wyswietl_txt_pop_data.Name = "wyswietl_txt_pop_data";
-            this.wyswietl_txt_pop_data.Size = new System.Drawing.Size(155, 27);
-            this.wyswietl_txt_pop_data.TabIndex = 41;
-            // 
-            // wyswietl_txt_pop_badanie
-            // 
-            this.wyswietl_txt_pop_badanie.Location = new System.Drawing.Point(209, 107);
-            this.wyswietl_txt_pop_badanie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.wyswietl_txt_pop_badanie.Name = "wyswietl_txt_pop_badanie";
-            this.wyswietl_txt_pop_badanie.Size = new System.Drawing.Size(128, 27);
-            this.wyswietl_txt_pop_badanie.TabIndex = 40;
-            // 
-            // wyswietl_txt_pop_imie
-            // 
-            this.wyswietl_txt_pop_imie.Location = new System.Drawing.Point(98, 107);
-            this.wyswietl_txt_pop_imie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.wyswietl_txt_pop_imie.Name = "wyswietl_txt_pop_imie";
-            this.wyswietl_txt_pop_imie.Size = new System.Drawing.Size(113, 27);
-            this.wyswietl_txt_pop_imie.TabIndex = 39;
+            this.pobierz_txt.BackColor = System.Drawing.SystemColors.Control;
+            this.pobierz_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.pobierz_txt.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.pobierz_txt.Location = new System.Drawing.Point(295, 228);
+            this.pobierz_txt.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.pobierz_txt.Name = "pobierz_txt";
+            this.pobierz_txt.Size = new System.Drawing.Size(208, 20);
+            this.pobierz_txt.TabIndex = 27;
+            this.pobierz_txt.Text = "Naciśnij aby pobrać kolejkę ->";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 451);
+            this.Controls.Add(this.pobierz_txt);
+            this.Controls.Add(this.pobierz_btn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txt_godz);
@@ -399,6 +426,8 @@ namespace Pacjenci
         private System.Windows.Forms.TextBox wyswietl_txt_nast_data;
         private System.Windows.Forms.TextBox wyswietl_txt_nast_badanie;
         private System.Windows.Forms.TextBox wyswietl_txt_nast_imie;
+        private System.Windows.Forms.Button pobierz_btn;
+        private System.Windows.Forms.TextBox pobierz_txt;
     }
 }
 
