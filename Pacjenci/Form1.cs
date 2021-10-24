@@ -12,13 +12,11 @@ namespace Pacjenci
 {
     public partial class Form1 : Form
     {
-        int poczatek = 0;
-        string koniec = "";
-        int wielkosc = 0;
-        string[,] kolejka = new string[5,3];
+        int poczatek = -1;
+        int koniec = -1;
+        int wielkosc = 50;
+        string[,] kolejka = new string[50,3];
         int wyswietlanie_zmienna = 0;
-        //TextBox wyswietl = new TextBox();
-        string wszystko = "";
 
         struct Struktura
         {
@@ -30,80 +28,98 @@ namespace Pacjenci
 
         void usun()
         {
-            if (wielkosc <= 1)
+            if(poczatek == -1|| poczatek > koniec)
             {
-                System.Windows.Forms.MessageBox.Show("Nie mamy czego usunac");
+                System.Windows.Forms.MessageBox.Show("Kolejka jest przeciążona");
                 return;
-
-
             }
-            else {
-                for (int i = 1; i < wielkosc; i++)
-                {
-                    kolejka[0,i - 1] = kolejka[0,i];
-                }
-
-                wielkosc--;
+            else
+            {
+                wyswietlanie_zmienna++;
+                poczatek++;
             }
         }
         void wyswietlanie()
         {
-            if (wielkosc < 0)
+            if (poczatek == - 1)
             {
                 System.Windows.Forms.MessageBox.Show("Mamy za mało wartosci");
                 return;
             }
             else
             {
-                string zwracana_wartosc = kolejka[wyswietlanie_zmienna,0] + kolejka[wyswietlanie_zmienna,1] + kolejka[wyswietlanie_zmienna,2];
-                wyswietl_txt.Text = kolejka[wyswietlanie_zmienna, 0] + kolejka[wyswietlanie_zmienna, 1];
-                wyswietl_txt_dwa.Text = kolejka[wyswietlanie_zmienna, 2];
+                wyswietl_txt_imie.Text = kolejka[wyswietlanie_zmienna, 0];
+                wyswietl_txt_badanie.Text = kolejka[wyswietlanie_zmienna, 1];
+                wyswietl_txt_data.Text = kolejka[wyswietlanie_zmienna, 2];
                 if (wyswietlanie_zmienna > 0) 
                 {
-                    wyswietl_txt_pop.Text = kolejka[wyswietlanie_zmienna-1,0] + kolejka[wyswietlanie_zmienna-1,1] + kolejka[wyswietlanie_zmienna-1,2];
+                    wyswietl_txt_pop_imie.Text = kolejka[wyswietlanie_zmienna - 1, 0];
+                    wyswietl_txt_pop_badanie.Text = kolejka[wyswietlanie_zmienna - 1, 1];
+                    wyswietl_txt_pop_data.Text = kolejka[wyswietlanie_zmienna-1,2];
                 }
                 else
                 {
-                    wyswietl_txt_pop.Text = " "; 
+                    wyswietl_txt_pop_imie.Text = " ";
+                    wyswietl_txt_pop_badanie.Text = " ";
+                    wyswietl_txt_pop_data.Text = " ";
                 }
                 if (wyswietlanie_zmienna != 4)
                 {
-                    wyswietl_txt_nast.Text = kolejka[wyswietlanie_zmienna + 1, 0] + kolejka[wyswietlanie_zmienna + 1, 1] + kolejka[wyswietlanie_zmienna + 1, 2];
+                    wyswietl_txt_nast_imie.Text = kolejka[wyswietlanie_zmienna + 1, 0];
+                    wyswietl_txt_nast_badanie.Text = kolejka[wyswietlanie_zmienna + 1, 1];
+                    wyswietl_txt_nast_data.Text = kolejka[wyswietlanie_zmienna + 1, 2];
                 }
                 else
                 {
-                    wyswietl_txt_nast.Text = " ";
+                    wyswietl_txt_nast_imie.Text = " ";
+                    wyswietl_txt_nast_badanie.Text = " ";
+                    wyswietl_txt_nast_data.Text = " ";
                 }
             }
-            if (wyswietl_txt.Text.Contains("Dni:0") == true)
+            if (wyswietl_txt_data.Text.Contains("Dni:0") == true)
             {
-                wyswietl_txt.ForeColor = Color.Red;
-                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Italic);
+                wyswietl_txt_data.ForeColor = Color.Red;
+            }
+            else if(wyswietl_txt_data.Text.Contains("-") == true)
+            {
+                wyswietl_txt_data.Font = new Font(wyswietl_txt_imie.Font, FontStyle.Italic);
+                wyswietl_txt_data.ForeColor = Color.Black;
+            
             }
             else
             {
-                wyswietl_txt.ForeColor = Color.Black;
-                wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Bold);
+                wyswietl_txt_data.ForeColor = Color.Black;
+                wyswietl_txt_data.Font = new Font(wyswietl_txt_imie.Font, FontStyle.Regular);
             }
-            if (wyswietl_txt_nast.Text.Contains("Dni:0") == true)
+            if (wyswietl_txt_nast_data.Text.Contains("Dni:0") == true)
             {
-                wyswietl_txt_nast.ForeColor = Color.Red;
-                wyswietl_txt_nast.Font = new Font(wyswietl_txt.Font, FontStyle.Italic);
+                wyswietl_txt_nast_data.ForeColor = Color.Red;
             }
-            else
+            else if (wyswietl_txt_nast_data.Text.Contains("-") == true)
             {
-                wyswietl_txt_nast.ForeColor = Color.Black;
-                wyswietl_txt_nast.Font = new Font(wyswietl_txt.Font, FontStyle.Regular);
-            }
-            if (wyswietl_txt_pop.Text.Contains("Dni:0") == true)
-            {
-                wyswietl_txt_pop.ForeColor = Color.Red;
-                wyswietl_txt_pop.Font = new Font(wyswietl_txt.Font, FontStyle.Italic);
+                wyswietl_txt_nast_data.Font = new Font(wyswietl_txt_imie.Font, FontStyle.Italic);
+                wyswietl_txt_nast_data.ForeColor = Color.Black;
+
             }
             else
             {
-                wyswietl_txt_pop.ForeColor = Color.Black;
-                wyswietl_txt_pop.Font = new Font(wyswietl_txt.Font, FontStyle.Regular);
+                wyswietl_txt_nast_data.ForeColor = Color.Black;
+                wyswietl_txt_nast_data.Font = new Font(wyswietl_txt_imie.Font, FontStyle.Regular);
+            }
+            if (wyswietl_txt_pop_data.Text.Contains("Dni:0") == true)
+            {
+                wyswietl_txt_pop_data.ForeColor = Color.Red;
+            }
+            else if (wyswietl_txt_pop_data.Text.Contains("-") == true)
+            {
+                wyswietl_txt_pop_data.Font = new Font(wyswietl_txt_imie.Font, FontStyle.Italic);
+                wyswietl_txt_pop_data.ForeColor = Color.Black;
+
+            }
+            else
+            {
+                wyswietl_txt_pop_data.ForeColor = Color.Black;
+                wyswietl_txt_pop_data.Font = new Font(wyswietl_txt_imie.Font, FontStyle.Regular);
             }
 
 
@@ -120,47 +136,17 @@ namespace Pacjenci
             timer1.Start();
         }
 
-        private void imie_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dtp_data_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
-            wyswietl_txt.Font = new Font(wyswietl_txt.Font, FontStyle.Bold);
+            wyswietl_txt_imie.Font = new Font(wyswietl_txt_imie.Font, FontStyle.Bold);
             DateTime godzina = DateTime.Now;
             this.godzina.Text = godzina.ToString("HH:mm");
             this.data.Text = godzina.ToShortDateString();
         }
 
-        private void data_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void godzina_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void wyswietl_txt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void plus_btn_Click_1(object sender, EventArgs e)
         {
-            if (wyswietlanie_zmienna >= 4)
+            if (wyswietlanie_zmienna >= koniec)
             {
                 System.Windows.Forms.MessageBox.Show("Dobiłeś do Maksa");
                 return;
@@ -168,17 +154,18 @@ namespace Pacjenci
             else
             {
                 wyswietlanie_zmienna++;
-                string zwracana_wartosc2 = kolejka[wyswietlanie_zmienna,0] + kolejka[wyswietlanie_zmienna, 1] + kolejka[wyswietlanie_zmienna, 2];
+                
 
-                wyswietl_txt.Text = kolejka[wyswietlanie_zmienna, 0] + kolejka[wyswietlanie_zmienna, 1];
-                wyswietl_txt_dwa.Text = kolejka[wyswietlanie_zmienna, 2];
+                wyswietl_txt_imie.Text = kolejka[wyswietlanie_zmienna, 0] ;
+                wyswietl_txt_badanie.Text = kolejka[wyswietlanie_zmienna, 1];
+                wyswietl_txt_data.Text = kolejka[wyswietlanie_zmienna, 2];
             }
             wyswietlanie();
         }
 
         private void minus_btn_Click_1(object sender, EventArgs e)
         {
-            if (wyswietlanie_zmienna <= 0)
+            if (wyswietlanie_zmienna <= poczatek)
             {
                 System.Windows.Forms.MessageBox.Show("Dobiłeś do minimum");
                 return;
@@ -186,38 +173,45 @@ namespace Pacjenci
             else
             {
                 wyswietlanie_zmienna--;
-                string zwracana_wartosc3 = kolejka[wyswietlanie_zmienna, 0]+ kolejka[wyswietlanie_zmienna, 1]+ kolejka[wyswietlanie_zmienna, 2];
-                wyswietl_txt.Text = kolejka[wyswietlanie_zmienna, 0] + kolejka[wyswietlanie_zmienna, 1];
-                wyswietl_txt_dwa.Text = kolejka[wyswietlanie_zmienna, 2];
+                wyswietl_txt_imie.Text = kolejka[wyswietlanie_zmienna, 0];
+                wyswietl_txt_badanie.Text = kolejka[wyswietlanie_zmienna, 1];
+                wyswietl_txt_data.Text = kolejka[wyswietlanie_zmienna, 2];
             }
             wyswietlanie();
         }
 
         private void btn_zapisz_Click_1(object sender, EventArgs e)
         {
-            wyswietl_txt.Font = new Font("Microsoft Sans Serif", 7.5f);
-            wyswietl_txt_nast.Font = new Font("Microsoft Sans Serif", 7.5f);
-            wyswietl_txt_pop.Font = new Font("Microsoft Sans Serif", 7.5f);
-            DateTime godzina = DateTime.Now;
-            Pacjenci.imie = inpt_imie.Text.ToString();
-            Pacjenci.badania = inpt_badanie.Text.ToString();
-            TimeSpan value = dtp_data.Value.Subtract(godzina);
-            Pacjenci.data =  "Dni:"+value.Days.ToString() + " " + "Godz:"+value.Hours.ToString()+" "+"Min:"+value.Minutes.ToString();
-            wszystko = "Imie:"+Pacjenci.imie+" "+ "Badanie:" + Pacjenci.badania + " " + Pacjenci.data;
+            wyswietl_txt_imie.Font = new Font("Microsoft Sans Serif", 7.5f);
+            wyswietl_txt_badanie.Font = new Font("Microsoft Sans Serif", 7.5f);
+            wyswietl_txt_data.Font = new Font("Microsoft Sans Serif", 7.5f);
+            wyswietl_txt_nast_imie.Font = new Font("Microsoft Sans Serif", 7.5f);
+            wyswietl_txt_nast_badanie.Font = new Font("Microsoft Sans Serif", 7.5f);
+            wyswietl_txt_nast_data.Font = new Font("Microsoft Sans Serif", 7.5f);
+            wyswietl_txt_pop_imie.Font = new Font("Microsoft Sans Serif", 7.5f);
+            wyswietl_txt_pop_badanie.Font = new Font("Microsoft Sans Serif", 7.5f);
+            wyswietl_txt_pop_data.Font = new Font("Microsoft Sans Serif", 7.5f);
 
-            if (wielkosc > 4)
+            
+            if (poczatek == wielkosc-1)
             {
-                System.Windows.Forms.MessageBox.Show("Kolejka jest pełna");
+                System.Windows.Forms.MessageBox.Show("Kolejka jest przeciążona");
                 return;
             }
-
-
-            kolejka[wielkosc, 0] = "Imie:" + Pacjenci.imie;
-            kolejka[wielkosc, 1] = "Badanie:" + Pacjenci.badania;
-            kolejka[wielkosc, 2] = Pacjenci.data;
-            wielkosc++;
-            poczatek++;
-            koniec = kolejka[0, 0];
+            else
+            {
+                if (poczatek == -1)
+                poczatek = 0;
+                koniec++;
+                DateTime godzina = DateTime.Now;
+                Pacjenci.imie = inpt_imie.Text.ToString();
+                Pacjenci.badania = inpt_badanie.Text.ToString();
+                TimeSpan value = dtp_data.Value.Subtract(godzina);
+                Pacjenci.data =  "Dni:"+value.Days.ToString() + " " + "Godz:"+value.Hours.ToString()+" "+"Min:"+value.Minutes.ToString();   
+                kolejka[koniec, 0] = "Imie:" + Pacjenci.imie;
+                kolejka[koniec, 1] = "Badanie:" + Pacjenci.badania;
+                kolejka[koniec, 2] = Pacjenci.data;
+            }
             wyswietlanie();
         }
 

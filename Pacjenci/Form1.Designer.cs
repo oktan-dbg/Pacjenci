@@ -37,14 +37,13 @@ namespace Pacjenci
             this.txt_dzis = new System.Windows.Forms.Label();
             this.txt_godz = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.wyswietl_txt_badanie = new System.Windows.Forms.TextBox();
             this.poprzedni_txt = new System.Windows.Forms.Label();
             this.nastepny_txt = new System.Windows.Forms.Label();
-            this.wyswietl_txt_pop = new System.Windows.Forms.TextBox();
-            this.wyswietl_txt_nast = new System.Windows.Forms.TextBox();
             this.minus_btn = new System.Windows.Forms.Button();
             this.plus_btn = new System.Windows.Forms.Button();
             this.usun_btn = new System.Windows.Forms.Button();
-            this.wyswietl_txt = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_imie = new System.Windows.Forms.TextBox();
             this.wyswietl_btn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dtp_data = new System.Windows.Forms.DateTimePicker();
@@ -54,7 +53,13 @@ namespace Pacjenci
             this.badanie_txt = new System.Windows.Forms.Label();
             this.imie_txt = new System.Windows.Forms.Label();
             this.inpt_imie = new System.Windows.Forms.TextBox();
-            this.wyswietl_txt_dwa = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_data = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_nast_data = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_nast_badanie = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_nast_imie = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_pop_data = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_pop_badanie = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_pop_imie = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -79,7 +84,6 @@ namespace Pacjenci
             this.godzina.Size = new System.Drawing.Size(63, 20);
             this.godzina.TabIndex = 9;
             this.godzina.Text = "godzina";
-            this.godzina.Click += new System.EventHandler(this.godzina_Click);
             // 
             // data
             // 
@@ -89,7 +93,6 @@ namespace Pacjenci
             this.data.Size = new System.Drawing.Size(41, 20);
             this.data.TabIndex = 10;
             this.data.Text = "Data";
-            this.data.Click += new System.EventHandler(this.data_Click);
             // 
             // txt_dzis
             // 
@@ -112,15 +115,20 @@ namespace Pacjenci
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.groupBox1.Controls.Add(this.wyswietl_txt_dwa);
+            this.groupBox1.Controls.Add(this.wyswietl_txt_pop_data);
+            this.groupBox1.Controls.Add(this.wyswietl_txt_pop_badanie);
+            this.groupBox1.Controls.Add(this.wyswietl_txt_pop_imie);
+            this.groupBox1.Controls.Add(this.wyswietl_txt_nast_data);
+            this.groupBox1.Controls.Add(this.wyswietl_txt_nast_badanie);
+            this.groupBox1.Controls.Add(this.wyswietl_txt_nast_imie);
+            this.groupBox1.Controls.Add(this.wyswietl_txt_data);
+            this.groupBox1.Controls.Add(this.wyswietl_txt_badanie);
             this.groupBox1.Controls.Add(this.poprzedni_txt);
             this.groupBox1.Controls.Add(this.nastepny_txt);
-            this.groupBox1.Controls.Add(this.wyswietl_txt_pop);
-            this.groupBox1.Controls.Add(this.wyswietl_txt_nast);
             this.groupBox1.Controls.Add(this.minus_btn);
             this.groupBox1.Controls.Add(this.plus_btn);
             this.groupBox1.Controls.Add(this.usun_btn);
-            this.groupBox1.Controls.Add(this.wyswietl_txt);
+            this.groupBox1.Controls.Add(this.wyswietl_txt_imie);
             this.groupBox1.Controls.Add(this.wyswietl_btn);
             this.groupBox1.Location = new System.Drawing.Point(292, 27);
             this.groupBox1.Name = "groupBox1";
@@ -128,6 +136,14 @@ namespace Pacjenci
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zarządzanie listą:";
+            // 
+            // wyswietl_txt_badanie
+            // 
+            this.wyswietl_txt_badanie.Location = new System.Drawing.Point(176, 39);
+            this.wyswietl_txt_badanie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_badanie.Name = "wyswietl_txt_badanie";
+            this.wyswietl_txt_badanie.Size = new System.Drawing.Size(132, 27);
+            this.wyswietl_txt_badanie.TabIndex = 34;
             // 
             // poprzedni_txt
             // 
@@ -146,20 +162,6 @@ namespace Pacjenci
             this.nastepny_txt.Size = new System.Drawing.Size(74, 20);
             this.nastepny_txt.TabIndex = 32;
             this.nastepny_txt.Text = "Następny:";
-            // 
-            // wyswietl_txt_pop
-            // 
-            this.wyswietl_txt_pop.Location = new System.Drawing.Point(98, 107);
-            this.wyswietl_txt_pop.Name = "wyswietl_txt_pop";
-            this.wyswietl_txt_pop.Size = new System.Drawing.Size(394, 27);
-            this.wyswietl_txt_pop.TabIndex = 31;
-            // 
-            // wyswietl_txt_nast
-            // 
-            this.wyswietl_txt_nast.Location = new System.Drawing.Point(98, 74);
-            this.wyswietl_txt_nast.Name = "wyswietl_txt_nast";
-            this.wyswietl_txt_nast.Size = new System.Drawing.Size(394, 27);
-            this.wyswietl_txt_nast.TabIndex = 30;
             // 
             // minus_btn
             // 
@@ -192,14 +194,13 @@ namespace Pacjenci
             this.usun_btn.UseVisualStyleBackColor = true;
             this.usun_btn.Click += new System.EventHandler(this.usun_btn_Click_1);
             // 
-            // wyswietl_txt
+            // wyswietl_txt_imie
             // 
-            this.wyswietl_txt.Location = new System.Drawing.Point(65, 39);
-            this.wyswietl_txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.wyswietl_txt.Name = "wyswietl_txt";
-            this.wyswietl_txt.Size = new System.Drawing.Size(194, 27);
-            this.wyswietl_txt.TabIndex = 25;
-            this.wyswietl_txt.TextChanged += new System.EventHandler(this.wyswietl_txt_TextChanged);
+            this.wyswietl_txt_imie.Location = new System.Drawing.Point(65, 39);
+            this.wyswietl_txt_imie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_imie.Name = "wyswietl_txt_imie";
+            this.wyswietl_txt_imie.Size = new System.Drawing.Size(114, 27);
+            this.wyswietl_txt_imie.TabIndex = 25;
             // 
             // wyswietl_btn
             // 
@@ -287,13 +288,61 @@ namespace Pacjenci
             this.inpt_imie.Size = new System.Drawing.Size(263, 27);
             this.inpt_imie.TabIndex = 8;
             // 
-            // wyswietl_txt_dwa
+            // wyswietl_txt_data
             // 
-            this.wyswietl_txt_dwa.Location = new System.Drawing.Point(262, 39);
-            this.wyswietl_txt_dwa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.wyswietl_txt_dwa.Name = "wyswietl_txt_dwa";
-            this.wyswietl_txt_dwa.Size = new System.Drawing.Size(183, 27);
-            this.wyswietl_txt_dwa.TabIndex = 34;
+            this.wyswietl_txt_data.Location = new System.Drawing.Point(304, 39);
+            this.wyswietl_txt_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_data.Name = "wyswietl_txt_data";
+            this.wyswietl_txt_data.Size = new System.Drawing.Size(141, 27);
+            this.wyswietl_txt_data.TabIndex = 35;
+            // 
+            // wyswietl_txt_nast_data
+            // 
+            this.wyswietl_txt_nast_data.Location = new System.Drawing.Point(337, 76);
+            this.wyswietl_txt_nast_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_nast_data.Name = "wyswietl_txt_nast_data";
+            this.wyswietl_txt_nast_data.Size = new System.Drawing.Size(155, 27);
+            this.wyswietl_txt_nast_data.TabIndex = 38;
+            // 
+            // wyswietl_txt_nast_badanie
+            // 
+            this.wyswietl_txt_nast_badanie.Location = new System.Drawing.Point(209, 76);
+            this.wyswietl_txt_nast_badanie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_nast_badanie.Name = "wyswietl_txt_nast_badanie";
+            this.wyswietl_txt_nast_badanie.Size = new System.Drawing.Size(128, 27);
+            this.wyswietl_txt_nast_badanie.TabIndex = 37;
+            // 
+            // wyswietl_txt_nast_imie
+            // 
+            this.wyswietl_txt_nast_imie.Location = new System.Drawing.Point(98, 76);
+            this.wyswietl_txt_nast_imie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_nast_imie.Name = "wyswietl_txt_nast_imie";
+            this.wyswietl_txt_nast_imie.Size = new System.Drawing.Size(113, 27);
+            this.wyswietl_txt_nast_imie.TabIndex = 36;
+            // 
+            // wyswietl_txt_pop_data
+            // 
+            this.wyswietl_txt_pop_data.Location = new System.Drawing.Point(337, 107);
+            this.wyswietl_txt_pop_data.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_pop_data.Name = "wyswietl_txt_pop_data";
+            this.wyswietl_txt_pop_data.Size = new System.Drawing.Size(155, 27);
+            this.wyswietl_txt_pop_data.TabIndex = 41;
+            // 
+            // wyswietl_txt_pop_badanie
+            // 
+            this.wyswietl_txt_pop_badanie.Location = new System.Drawing.Point(209, 107);
+            this.wyswietl_txt_pop_badanie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_pop_badanie.Name = "wyswietl_txt_pop_badanie";
+            this.wyswietl_txt_pop_badanie.Size = new System.Drawing.Size(128, 27);
+            this.wyswietl_txt_pop_badanie.TabIndex = 40;
+            // 
+            // wyswietl_txt_pop_imie
+            // 
+            this.wyswietl_txt_pop_imie.Location = new System.Drawing.Point(98, 107);
+            this.wyswietl_txt_pop_imie.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_pop_imie.Name = "wyswietl_txt_pop_imie";
+            this.wyswietl_txt_pop_imie.Size = new System.Drawing.Size(113, 27);
+            this.wyswietl_txt_pop_imie.TabIndex = 39;
             // 
             // Form1
             // 
@@ -329,12 +378,10 @@ namespace Pacjenci
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label poprzedni_txt;
         private System.Windows.Forms.Label nastepny_txt;
-        private System.Windows.Forms.TextBox wyswietl_txt_pop;
-        private System.Windows.Forms.TextBox wyswietl_txt_nast;
         private System.Windows.Forms.Button minus_btn;
         private System.Windows.Forms.Button plus_btn;
         private System.Windows.Forms.Button usun_btn;
-        private System.Windows.Forms.TextBox wyswietl_txt;
+        private System.Windows.Forms.TextBox wyswietl_txt_imie;
         private System.Windows.Forms.Button wyswietl_btn;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DateTimePicker dtp_data;
@@ -344,7 +391,14 @@ namespace Pacjenci
         private System.Windows.Forms.Label badanie_txt;
         private System.Windows.Forms.Label imie_txt;
         private System.Windows.Forms.TextBox inpt_imie;
-        private System.Windows.Forms.TextBox wyswietl_txt_dwa;
+        private System.Windows.Forms.TextBox wyswietl_txt_badanie;
+        private System.Windows.Forms.TextBox wyswietl_txt_data;
+        private System.Windows.Forms.TextBox wyswietl_txt_pop_data;
+        private System.Windows.Forms.TextBox wyswietl_txt_pop_badanie;
+        private System.Windows.Forms.TextBox wyswietl_txt_pop_imie;
+        private System.Windows.Forms.TextBox wyswietl_txt_nast_data;
+        private System.Windows.Forms.TextBox wyswietl_txt_nast_badanie;
+        private System.Windows.Forms.TextBox wyswietl_txt_nast_imie;
     }
 }
 
