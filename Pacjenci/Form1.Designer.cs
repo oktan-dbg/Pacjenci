@@ -54,6 +54,7 @@ namespace Pacjenci
             this.badanie_txt = new System.Windows.Forms.Label();
             this.imie_txt = new System.Windows.Forms.Label();
             this.inpt_imie = new System.Windows.Forms.TextBox();
+            this.wyswietl_txt_dwa = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -111,6 +112,7 @@ namespace Pacjenci
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.groupBox1.Controls.Add(this.wyswietl_txt_dwa);
             this.groupBox1.Controls.Add(this.poprzedni_txt);
             this.groupBox1.Controls.Add(this.nastepny_txt);
             this.groupBox1.Controls.Add(this.wyswietl_txt_pop);
@@ -120,9 +122,9 @@ namespace Pacjenci
             this.groupBox1.Controls.Add(this.usun_btn);
             this.groupBox1.Controls.Add(this.wyswietl_txt);
             this.groupBox1.Controls.Add(this.wyswietl_btn);
-            this.groupBox1.Location = new System.Drawing.Point(315, 31);
+            this.groupBox1.Location = new System.Drawing.Point(292, 27);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(452, 193);
+            this.groupBox1.Size = new System.Drawing.Size(505, 193);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zarządzanie listą:";
@@ -149,14 +151,14 @@ namespace Pacjenci
             // 
             this.wyswietl_txt_pop.Location = new System.Drawing.Point(98, 107);
             this.wyswietl_txt_pop.Name = "wyswietl_txt_pop";
-            this.wyswietl_txt_pop.Size = new System.Drawing.Size(337, 27);
+            this.wyswietl_txt_pop.Size = new System.Drawing.Size(394, 27);
             this.wyswietl_txt_pop.TabIndex = 31;
             // 
             // wyswietl_txt_nast
             // 
             this.wyswietl_txt_nast.Location = new System.Drawing.Point(98, 74);
             this.wyswietl_txt_nast.Name = "wyswietl_txt_nast";
-            this.wyswietl_txt_nast.Size = new System.Drawing.Size(337, 27);
+            this.wyswietl_txt_nast.Size = new System.Drawing.Size(394, 27);
             this.wyswietl_txt_nast.TabIndex = 30;
             // 
             // minus_btn
@@ -171,7 +173,7 @@ namespace Pacjenci
             // 
             // plus_btn
             // 
-            this.plus_btn.Location = new System.Drawing.Point(394, 39);
+            this.plus_btn.Location = new System.Drawing.Point(451, 38);
             this.plus_btn.Name = "plus_btn";
             this.plus_btn.Size = new System.Drawing.Size(41, 29);
             this.plus_btn.TabIndex = 28;
@@ -181,7 +183,7 @@ namespace Pacjenci
             // 
             // usun_btn
             // 
-            this.usun_btn.Location = new System.Drawing.Point(349, 150);
+            this.usun_btn.Location = new System.Drawing.Point(406, 150);
             this.usun_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.usun_btn.Name = "usun_btn";
             this.usun_btn.Size = new System.Drawing.Size(86, 31);
@@ -195,7 +197,7 @@ namespace Pacjenci
             this.wyswietl_txt.Location = new System.Drawing.Point(65, 39);
             this.wyswietl_txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.wyswietl_txt.Name = "wyswietl_txt";
-            this.wyswietl_txt.Size = new System.Drawing.Size(323, 27);
+            this.wyswietl_txt.Size = new System.Drawing.Size(194, 27);
             this.wyswietl_txt.TabIndex = 25;
             this.wyswietl_txt.TextChanged += new System.EventHandler(this.wyswietl_txt_TextChanged);
             // 
@@ -220,7 +222,7 @@ namespace Pacjenci
             this.groupBox2.Controls.Add(this.badanie_txt);
             this.groupBox2.Controls.Add(this.imie_txt);
             this.groupBox2.Controls.Add(this.inpt_imie);
-            this.groupBox2.Location = new System.Drawing.Point(12, 27);
+            this.groupBox2.Location = new System.Drawing.Point(3, 27);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(272, 236);
             this.groupBox2.TabIndex = 25;
@@ -285,6 +287,14 @@ namespace Pacjenci
             this.inpt_imie.Size = new System.Drawing.Size(263, 27);
             this.inpt_imie.TabIndex = 8;
             // 
+            // wyswietl_txt_dwa
+            // 
+            this.wyswietl_txt_dwa.Location = new System.Drawing.Point(262, 39);
+            this.wyswietl_txt_dwa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.wyswietl_txt_dwa.Name = "wyswietl_txt_dwa";
+            this.wyswietl_txt_dwa.Size = new System.Drawing.Size(183, 27);
+            this.wyswietl_txt_dwa.TabIndex = 34;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -334,6 +344,7 @@ namespace Pacjenci
         private System.Windows.Forms.Label badanie_txt;
         private System.Windows.Forms.Label imie_txt;
         private System.Windows.Forms.TextBox inpt_imie;
+        private System.Windows.Forms.TextBox wyswietl_txt_dwa;
     }
 }
 
